@@ -1,0 +1,285 @@
+<DOCTYPE! html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Curriculum Vitae</title>
+	<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  	<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  	<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+<div id="container"></div>
+<script type="text/babel">
+
+class Menu extends React.Component{
+	render(){
+		var menuStyle={
+			display: "flex",
+			width: "100%",
+			height: 70,
+			border: "1px solid black",
+		    justifyContent: "space-around",
+			alignItems: "center",
+		    paddingLeft:10,
+		    paddingRight:10,
+		    paddingTop: 5,
+		};
+		return(
+		<ul style={menuStyle} >
+            <li><a href='#DP'>Datos Personales</a></li>
+            <li><a href='#DE'>Datos Escolares</a></li>
+            <li><a href='#FA'>Formación académica</a></li>
+            <li><a href='#HT'>Herramientas Tecnológicas</a></li>
+          <br/>
+		</ul>	
+		);	
+	}
+}
+
+class Datos extends React.Component{
+	render(){
+		var datosStyle={
+			width: "65%",
+			order: 2,
+			height: 150,
+			backgroundColor: "#FDE9FF",
+			border: "1px solid black",
+			alignItems: "center",
+			borderRadius: 10
+		};
+
+		return(
+			<div style={datosStyle}>
+				<a id='DP'></a>
+		        <h2><em><strong>Datos Personales</strong></em></h2>
+		        <p>Nombre: Erika Michelle Martínez Guzmán.<br/>
+		        Edad: 21 años.<br/>
+		        Email: erikam.martinezg@gmail.com
+		        </p>
+			</div>	
+		);
+	}
+}
+
+
+class Imagen extends React.Component{
+	render(){
+		var imStyle={
+			width: "30%",
+			order: 1,
+			height: 250,
+			backgroundColor: "white",
+			alignItems: "center",
+			justifyContent: "center"
+		};
+
+		return(
+			<div style={imStyle}>
+				<br/>
+		        <img src='cvimages/profile.jpg' width="200" />
+		        <br/>
+			</div>	
+		);
+	}
+
+}
+
+class Espacio extends React.Component{
+	render(){
+		var espStyle={
+			width: "3%",
+			height: 20,
+			order: 2
+		};	
+
+		return(
+			<div style={espStyle}>
+			</div >
+		);
+	}
+}
+
+class Bloque1 extends React.Component{
+	render(){
+		var bloq1Style={
+			display: "flex",
+			width: "100%",
+			justifyContent: "center",
+			alignItems: "center"
+		};
+		return(
+			<div style={bloq1Style}>
+				<Imagen/>
+				<Espacio/>
+				<Datos/>
+			</div>	
+		);
+	}
+}
+
+class Agrupar extends React.Component{
+	render(){
+		var agruparStyle={
+			justifyContent: "center",
+			display: "flex",
+			width: "100%"
+		};
+
+		return(
+		<div style={agruparStyle}>
+			<Bloque3/>
+			<Espacio/>
+			<Bloque2/>
+		</div>	
+		);
+	}
+}
+
+class Justificar extends React.Component{
+	render(){
+		var justStyle={
+			textAlign: "justify",
+			width: 300,
+			boxSizing: "border-box",
+			margin: "0 auto"
+		};
+
+		return(
+		<div style={justStyle}>
+	        <ul> 
+	            <h3><em><strong>Lenguajes de Programación</strong></em></h3>
+	            <li>C</li>
+	            <li>C++</li>
+	            <li>Java</li>
+	            <li>Python</li>
+	            <li>Matlab</li>
+	            <li>VHDL</li>
+	            <li>Ensamblador</li>
+	            <br/><h3><em><strong>Manejo de Base de Datos</strong></em></h3>
+	            <li>SQL</li>
+	            <br/><h3><em><strong>Microsoft Office</strong></em></h3>
+	            <br/><br/><br/>
+          	</ul>
+		</div>
+		);
+	}
+}
+
+class Bloque3 extends React.Component{
+	render(){
+		var b3Style={
+			backgroundColor: "#F4CCF7",
+			border: "1px solid black",
+			width: "75%",
+			order: 3,
+			textAlign: "center",
+			borderRadius: 10
+		};
+
+		return(
+		<div style={b3Style}>
+			<br/>
+	          <a id='DE'></a>
+	          <h2><em><strong>Datos escolares</strong></em></h2>
+	          <br/> 
+	            <p>Institución: Universidad Tecnológica de la Mixteca.<br/>
+	            Carrera: Ingeniería en Computación.<br/>
+	            Matricula: 2017020298</p><br/>
+	          <br/><hr/><br/>
+	          <a id='FA'></a>
+	          <h2><em><strong>Formación académica</strong></em></h2>
+	          <br/><h3><em><strong>Preparatoria</strong></em></h3>
+	          <p>2014-2017<br/>Colegio de Bachilleres Plantel 02<br/>San Jose del Cabo, Los Cabos, B.C.S.<br/></p>
+	          <br/><h3><em><strong>Secundaria</strong></em></h3>
+	          <p>2011-2014<br/>Escuela Secundaria Tecnica #21<br/>San Jose del Cabo, Los Cabos, B.C.S.<br/></p>
+	          <br/><h3><em><strong>Primaria</strong></em></h3>
+	          <p>2005-2011<br/>Escuela Primaria Francisco Javier Mina #21<br/>San Jose del Cabo, Los Cabos, B.C.S.<br/></p>
+	          <br/><hr/><br/>
+	          <a id='HT'></a>
+	          <h2><em><strong>Herramientas tecnológicas dominadas</strong></em></h2>
+	          <br/>
+	          <Justificar/>
+		</div>
+		);
+	}
+}
+
+class Bloque2 extends React.Component{
+	render(){
+		var b2Style={
+			background: "#FDE9FF",
+			width: "25%",
+			height: 680,
+			order: 1,
+			border: "1px solid black",
+			borderRadius: 10
+		};
+
+		return(
+		<div style={b2Style}>
+			<br/>
+	          <ul> 
+	            <h2><em><strong>Acerca de mi</strong></em></h2>
+	            <p>En mis tiempos libres me gusta:</p>
+	            <br/>
+	            <li>Escuchar música</li>
+	            <li>Ver peliculas</li>
+	            <li>Hacer deporte</li>
+	            <li>Salir con mis amigos</li>
+	            <li>Jugar videojuegos</li>
+	          </ul>
+          <br/><hr/><br/>
+          <h3><em><strong> <a href='deportesReact.html'>Deportes</a></strong></em></h3>
+          <br/><hr/><br/>
+          <h3><em><strong> <a href='cineReact.html'>Películas</a></strong></em></h3><br/>
+          <br/><hr/><br/>
+          <h3><em><strong> <a href='Buscaminas.html'>Buscaminas</a></strong></em></h3><br/>
+          <br/>
+		</div>
+		);
+	}
+}
+
+class Bloque extends React.Component{
+	render(){
+		var bloqueStyle={
+			justifyContent: "center",
+			margin: "0 auto",
+			color: "black",
+			backgroundColor: "lightcyan",
+			fontWeight: "bold",
+			padding: 20,
+			textAlign: "center",
+			fontStyle: "italic",
+			border: "2px solid #5d6063",
+			borderRadius: 3,
+			width: "100%",
+			boxSizing: "border-box",
+			border: "1px solid black",
+		};
+
+		return(
+		<div style={bloqueStyle}>
+			<h1><strong>Curriculum Vitae</strong></h1>
+			<Menu/>
+			<br/>
+			<Bloque1/>
+			<br/>
+			<Agrupar/>			
+		</div>
+		); 
+	}
+
+}
+
+ReactDOM.render(
+		<div>
+			<Bloque/>
+		</div>,
+		document.querySelector("#container")
+);
+
+</script>
+</body>
+</html>	

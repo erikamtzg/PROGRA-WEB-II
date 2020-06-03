@@ -1,0 +1,204 @@
+<DOCTYPE! html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Deportes</title>
+	<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  	<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  	<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+<div id="container"></div>
+<script type="text/babel">
+
+class Punto extends React.Component{
+	render(){
+		var punStyle={
+			width: "100%",
+			height: 400,
+			color: "lightseagreen",
+			order: 1
+		};
+
+		return(
+		<div style={punStyle}>
+			{this.props.children}
+		</div>	
+		);
+	}
+}
+
+class Pagina1 extends React.Component{
+	render(){
+		var page1Style={
+			display: "flex",
+			width: 900,
+			justifyContent: "center",
+			flexWrap: "wrap",
+			flexDirection: "row"
+		};
+
+		return(
+		<ol style={page1Style}>
+			<br/>
+			<Punto>
+				<h2><li>Atletismo</li></h2><br/>
+					<picture>
+						<source media ='(min-width: 961px)'
+							srcset='cvimages/atletismo1.jpg' width="400" />
+						<img src='cvimages/atletismo.jpg' width="400" />
+					</picture>
+					<br/>
+					<br/>
+					<hr/>
+					<br/>
+			</Punto>
+			<Punto>
+				<h2><li>Voleibol</li></h2><br/>
+					<picture>
+						<source media ='(min-width: 961px)'
+							srcset='cvimages/voleibol1.jpg' width="400" />
+					<img src='cvimages/voleibol.gif' width="400" />
+					</picture>
+
+					<br/>
+					<br/>
+					<hr/>
+					<br/>
+			</Punto>
+			
+			<Punto>
+				<h2><li>Natación</li></h2><br/>
+					<picture>
+						<source media ='(min-width: 961px)'
+							srcset='cvimages/natacion1.jpg' width="400" />
+						<img src='cvimages/natacion.jpg' width="400" />
+					</picture>
+			</Punto>
+		</ol>	
+		);
+	}
+}
+
+class Pagina extends React.Component{
+	render(){
+		var pagStyle={
+			display: "flex",
+			color: "black",
+			backgroundColor: "thistle",
+			textAlign: "center",
+			fontStyle: "italic",
+			border: "2px solid #5d6063",
+			borderRadius: 3,
+			justifyContent: "center"
+		};	
+
+		return(
+			<div style={pagStyle}>
+				<br/>
+				<Pagina1/>
+				
+			</div >
+		);
+	}
+}
+
+class Principal extends React.Component{
+	render(){
+		var prinStyle={
+			margin: "0 auto",
+			display: "flex",
+			alignItems: "center",
+			flexDirection: "column",
+			justifyContent: "center",
+			flexWrap: "wrap",
+			backgroundColor: "#EEEEEE", 
+		};	
+
+		return(
+			<div style={prinStyle}>
+				<Pagina/>
+			</div >
+		);
+	}
+}
+
+class Titulo extends React.Component{
+	render(){
+		var titStyle={
+			color: "mediumvioletred",
+			padding: "20px 20px 30px 0",
+			borderBottom: "3px solid #5D6063",
+			textAlign: "center",
+			backgroundColor: "#EEEEEE"
+		};	
+
+		return(
+			<div style={titStyle}>
+				<h1>Mis deportes favoritos</h1>
+				<br/>
+			</div >
+		);
+	}
+}
+
+class Button extends React.Component{
+	render(){
+		var butStyle={
+			color: "black",
+			backgroundColor: "palevioletred",
+			fontWeight: "bold",
+			padding: 10,
+			textAlign: "center",
+			border: "2px solid #5d6063",
+			borderRadius: 3,
+			width: 300,
+			margin: "20px auto",
+		};	
+
+		return(
+			<div style={butStyle}>
+				<a href='curEri.html'>Go back</a>
+			</div >
+		);
+	}
+}
+
+class Pie extends React.Component{
+	render(){
+		var fooStyle={
+			display: "flex",
+			justifyContent: "center",
+			alignItems: "center",
+			flexDirection: "column",
+			width: "100%",
+			backgroundColor: "#EEEEEE"
+		};
+
+		return(
+		<div style={fooStyle}>
+			<br/>
+				<h2>Noticias</h2>
+				<h3> Información actualizada sobre deportes en la siguiente liga: <a href='https://www.estadiodeportes.mx/'>Diario deportivo de México</a></h3>
+				<br/>
+				<br/>
+			<Button/>
+		</div>
+		);
+	}
+}
+
+ReactDOM.render(
+		<div>
+			<Titulo/>
+			<br/>
+			<Principal/>
+			<Pie/>
+		</div>,
+		document.querySelector("#container")
+);
+
+</script>
+</body>
+</html>	

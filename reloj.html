@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Reloj</title>
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+  <p> <h1> RELOJ </h1> </p>
+  <div id="container"> </div>
+
+  <script type="text/babel">
+	class ClockCounter extends React.Component{
+		
+		constructor(props,context){
+			super(props,context);
+
+			this.state={
+				seg:50,
+				min:59,
+				hr:22
+			};
+		
+			this.timerTick = this.timerTick.bind(this);
+		}
+				
+		timerTick(){
+				if(this.state.seg < 59){
+					this.setState( {
+						seg: this.state.seg + 1
+					});
+				}else{
+					this.setState( {
+						seg: 0,
+						min: this.state.min + 1
+					});
+					if(this.state.min > 59){
+						this.setState( {
+							min: 0,
+							hr: this.state.hr + 1
+					});
+						
+					if(this.state.hr > 23){
+						this.setState( {
+							min: 0,
+							hr: 0
+						});
+					}
+				}
+			}
+		}
+
+		componentDidMount(){
+			setInterval(this.timerTick,1000);
+		}
+		
+		render(){
+			if(this.state.hr < 10){
+				if(this.state.min < 10){
+					if(this.state.seg < 10){
+						return( <div> <h1> 0{this.state.hr}: 0{this.state.min} : 0{this.state.seg} </h1> </div> );
+					}
+					else{
+						return( <div> <h1> 0{this.state.hr}: 0{this.state.min} : {this.state.seg} </h1> </div> );
+					}
+				}
+				else{
+					if(this.state.seg < 10){
+						return( <div>
+			 			<h1> 0{this.state.hr}: {this.state.min} : 0{this.state.seg} </h1> </div> );
+					}
+					else{
+						return( <div>
+						<h1> 0{this.state.hr}: {this.state.min} : {this.state.seg} </h1> </div> );
+					}
+				}
+			}
+			else{
+				if(this.state.min <10){
+					if(this.state.seg <10){
+						return( <div> <h1> {this.state.hr}: 0{this.state.min} : 0{this.state.seg} </h1> </div> );
+					}
+					else{
+						return( <div> <h1> {this.state.hr}: 0{this.state.min} : {this.state.seg} </h1> </div> );
+					}
+				}
+				else{
+					if(this.state.seg <10){
+						return( <div> <h1> {this.state.hr}: {this.state.min} : 0{this.state.seg} </h1> </div> );
+					}
+					else{
+						return( <div> <h1> {this.state.hr}: {this.state.min} : {this.state.seg} </h1> </div> );
+					}
+				}	
+			}				
+		}
+	};
+
+	class LightningCounterDisplay extends React.Component{
+		render(){
+			var divStyle={
+				width: 250,
+				textAlign: "center",
+				backgroundColor: "#EBAEFF",
+				padding: 50,
+				fontFamily: "sans-serif",
+				color: "#000000",
+				borderRadius: "50%"
+			};
+
+			return(
+				<div style={divStyle}> <ClockCounter/> </div>
+			);
+		}
+	};
+
+	var destination = document.querySelector("#container");
+	ReactDOM.render(
+		<div>
+			<LightningCounterDisplay/>
+		</div>,
+		destination
+	);
+	
+  </script>
+</body>
+</html>
